@@ -4,4 +4,4 @@ El objetivo de este proyecto es que aprendamos manejar los conceptos basicos rea
 
 ## Uso del pull request en Github
 
-Estos periten llevar de forma ordenada las tareas, crear propuestas o realizar cambios que leugo se podran integrar. En pocas palabras wes hacer una peticion para agregar propuestas.
+Estos permiten llevar de forma ordenada las tareas, crear propuestas o realizar cambios que leugo se podran integrar. En pocas palabras wes hacer una peticion para agregar propuestas.
