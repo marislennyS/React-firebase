@@ -3,10 +3,11 @@ import Button from "./components/Button";
 
 function App() {
   const signInWithGoogle = async () => {
+
     firebase.auth().useDeviceLanguage();
 
     try {
-      await firebase.auth().singInwithPopup(googleAuthProvider);
+      await firebase.auth().signInwithPopup(googleAuthProvider);
     } catch (e) {
       console.error(e.message);
     }
