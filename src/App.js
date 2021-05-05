@@ -5,7 +5,7 @@ import{
   googleAuthProvider,
   firebase
 } from './config/firebase'
-import button from '.components/button'
+import button from '.components/Button'
 
 function app () {
   const signInWithGoogle = async () => {
@@ -19,9 +19,20 @@ try{
 };
 
 function App(){
+const signInWithGoogle = async () => {
+
+firebase.auth().useDeviceLanguage();
+
+try {
+  await firebase.base.auth().signInWithPopup (googleAuthProvider);
+} catch (e){
+  console.error(e.message);
+}
+
+};
   return(
      <div>
-       <button onClick={signInWithGoogle} >Sing in with Google</button> 
+       <Button onClick={signInWithGoogle} >Sing in with Google</Button> 
     </div>
      );
   }
