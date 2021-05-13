@@ -1,22 +1,39 @@
-import { db, googleAuthProvider, firebase } from "./config/firebase";
-import Button from "./components/Button";
+import { Button, Channel } from "./components";
+import { signOut, signInWithGoogle } from "./login";
+import { useAuthState } from "./hooks";
+import { firebase } from "./config/firebase";
+
 
 function App() {
-  const signInWithGoogle = async () => {
-    firebase.auth().useDeviceLanguage();
 
-    try {
-      await firebase.auth().signInWithPopup(googleAuthProvider);
-    } catch (e) {
-      console.error(e.message);
+  const { initializing, user } = useAuthState(firebase.auth());
+
+
+  const renderLoading = () => {
+    if (initializing) {
+      return <div>
+        <h1>Cargando Espera ...</h1>
+      </div>
     }
-  };
+  }
 
   return (
-    <div>
-      <Button onClick={signInWithGoogle}>Inicia Secion con Google</Button>
-    </div>
+    <>
+      {renderLoading()}
+      {
+        user ? (
+          <p>
+            <Button onClick={signOut} estilos="salir" > Salir</Button>
+            <h2> Bienvenidos al Chat!</h2>
+            <br />
+
+            <Channel user={user} />
+          </p>
+        )
+          : <p><Button onClick={signInWithGoogle} estilos="iniciar" > Sign in with Google </Button></p>
+      }
+    </>
   );
 }
-
 export default App;
+

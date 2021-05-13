@@ -1,22 +1,17 @@
 import { db, googleAuthProvider, firebase } from "./config/firebase";
 import { signInWithGoogle } from "./Index";
+import {firebase, googleAuthProvider } from '../config/firebase';
 
-function App() {
-    const signInWithGoogle = async () => {
-      firebase.auth().useDeviceLanguage();
-  
-      try {
+
+const signInWithGoogle  = async () => {
+    firebase.auth().useDeviceLanguage();
+
+    try {
         await firebase.auth().signInWithPopup(googleAuthProvider);
-      } catch (e) {
+    }
+    catch (e) {
         console.error(e.message);
-      }
-    };
-  
-    return (
-      <div>
-        <Button onClick={signInWithGoogle}>Inicia Secion con Google</Button>
-      </div>
-    );
-  }
-  export default signInWithGoogle;
-  
+    }
+
+};
+export default signInWithGoogle;
