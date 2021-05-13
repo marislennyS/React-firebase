@@ -1,7 +1,7 @@
-import signInWithGoogle from './singInWithGoogle';
-import signout from './signout';
+import signInWithGoogle from './signInWithGoogle';
+import signOut from './signOut';
 
 export {
     signInWithGoogle,
-    signout
-}
+    signOut
+};
